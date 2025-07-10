@@ -9,6 +9,11 @@ export default async function handler(req: Request) {
 	const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN
 	const CHAT_ID = process.env.TELEGRAM_CHAT_ID
 	
+	if (!TELEGRAM_TOKEN || !CHAT_ID) {
+		console.error('❌ Переменные окружения не определены', { TELEGRAM_TOKEN, CHAT_ID })
+		return new Response('Missing env vars', { status: 500 })
+	}
+	
 	const text = `
 📩 Новая заявка с сайта:
 
