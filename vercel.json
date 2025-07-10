@@ -1,0 +1,10 @@
+{
+	"functions": {
+		"api/sendMessage.ts": {
+			"runtime": "edge"
+		}
+	},
+	"rewrites": [
+		{ "source": "/api/sendMessage", "destination": "/api/sendMessage.ts" }
+	]
+}
